@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Product Show</title>
+    <style>
+        body {
+            background-color: black;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: grey;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+            animation: fade-in 1s ease-out;
+        }
+
+        .product-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .product-item {
+            background-color: #f2f2f2;
+            margin-bottom: 20px;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            animation: fade-in 1s ease-out;
+        }
+
+        .product-name {
+            font-size: 20px;
+            font-weight: bold;
+        }
+
+        .product-details {
+            margin-top: 10px;
+            color: #666666;
+        }
+
+        @keyframes fade-in {
+            0% { opacity: 0; transform: translateY(20px); }
+            100% { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Product List</h1>
+        <ul class="product-list">
+            {% for product in data %}
+                <li class="product-item">
+                    <h3 class="product-name">{{ product['product_name'] }}</h3>
+                    <div class="product-details">
+                        <p>Product ID: {{ product['product_id'] }}</p>
+                        <p>Stock: {{ product['stock'] }}</p>
+                        <p>Price: {{ product['price'] }}</p>
+                        <p>Supplier ID: {{ product['supplier_id'] }}</p>
+                    </div>
+                </li>
+            {% endfor %}
+        </ul>
+    </div>
+</body>
+</html>
+

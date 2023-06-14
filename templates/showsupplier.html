@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Supplier Show</title>
+    <style>
+        body {
+            background-color: black;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: grey;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+            animation: fade-in 1s ease-out;
+        }
+
+        .supplier-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .supplier-item {
+            background-color: #f2f2f2;
+            margin-bottom: 20px;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            animation: fade-in 1s ease-out;
+        }
+
+        .supplier-name {
+            font-size: 20px;
+            font-weight: bold;
+        }
+
+        .supplier-details {
+            margin-top: 10px;
+            color: #666666;
+        }
+
+        @keyframes fade-in {
+            0% { opacity: 0; transform: translateY(20px); }
+            100% { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Supplier List</h1>
+        <ul class="supplier-list">
+            {% for supplier in data %}
+                <li class="supplier-item">
+                    <h3 class="supplier-name">{{ supplier['supplier_name'] }}</h3>
+                    <div class="supplier-details">
+                        <p>Supplier ID: {{ supplier['supplier_id'] }}</p>
+                        <p>Address: {{ supplier['supplier_addr'] }}</p>
+                        <p>Email: {{ supplier['supplier_email'] }}</p>
+                    </div>
+                </li>
+            {% endfor %}
+        </ul>
+    </div>
+</body>
+</html>
