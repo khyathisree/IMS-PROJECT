@@ -54,7 +54,7 @@ def home():
     return render_template('index.html')
 
 
-@app.route('/show-customers')
+@app.route('/show-customer')
 def customer_show():
     conn=sqlite3.connect('ims.db')
     cn=conn.cursor()
